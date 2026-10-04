@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MetaLearn Space — Learn faster in one focused space</title>
+  <meta name="description" content="MetaLearn Space — courses, interactive labs, AI tutor, and community in one desktop-first learning space." />
+  <meta name="theme-color" content="#0B0F1A" />
+  <meta property="og:title" content="MetaLearn Space" />
+  <meta property="og:description" content="Courses, labs, AI tutor, and community in one focused learning space." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts (CDN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (CDN - v4 browser build, no build step, GitHub Pages compatible) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+      --font-display: "Space Grotesk", "Inter", sans-serif;
+      --color-space: #0B0F1A;
+      --color-card: #111827;
+    }
+  </style>
+
+  <style>
+    body { font-family: "Inter", system-ui, sans-serif; }
+    .font-display { font-family: "Space Grotesk", "Inter", sans-serif; }
+    .hero-grid {
+      background-image:
+        linear-gradient(to right, rgba(148,163,184,.09) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148,163,184,.09) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 60%, transparent 100%);
+    }
+    .orb { filter: blur(90px); opacity: .55; }
+    .glass { background: rgba(17,24,39,.72); backdrop-filter: blur(16px); }
+    section { scroll-margin-top: 88px; }
+    .os-btn.active { background: rgba(255,255,255,.95); color: #0f172a; border-color: transparent; font-weight: 600; }
+    .fmt-btn.active { background: rgba(129,140,248,.2); border-color: rgba(129,140,248,.6); color: #fff; font-weight: 600; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .float-slow { animation: float 7s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .float-slow { animation: none; } }
+  </style>
+</head>
+
+<body class="bg-[#0B0F1A] text-slate-300 antialiased selection:bg-indigo-500/40">
+
+  <!-- NAV -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="glass mt-4 rounded-2xl border border-white/10 px-4 sm:px-6 h-16 flex items-center justify-between">
+        <a href="#top" class="flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 via-violet-500 to-cyan-400 grid place-items-center font-display font-bold text-white text-lg">M</span>
+          <span class="font-display font-700 font-bold text-white tracking-tight">MetaLearn <span class="text-indigo-400">Space</span></span>
+        </a>
+        <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+          <a href="#features" class="hover:text-white transition">Features</a>
+          <a href="#how" class="hover:text-white transition">How it works</a>
+          <a href="#download" class="hover:text-white transition">Download</a>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+          <a href="https://github.com/synaptal/metalearn-space-desktop" target="_blank" rel="noopener" class="text-sm font-medium px-4 py-2 rounded-xl border border-white/10 hover:border-white/25 hover:text-white transition">GitHub</a>
+          <a href="#download" class="text-sm font-semibold px-4 py-2 rounded-xl bg-white text-slate-900 hover:bg-indigo-100 transition">Get the app</a>
+        </div>
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/10 text-slate-200" aria-label="Open menu">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden glass mt-2 rounded-2xl border border-white/10 p-4 space-y-1 text-[15px] font-medium">
+        <a href="#features" class="block px-3 py-2.5 rounded-lg hover:bg-white/5">Features</a>
+        <a href="#how" class="block px-3 py-2.5 rounded-lg hover:bg-white/5">How it works</a>
+        <a href="#download" class="block px-3 py-2.5 rounded-lg hover:bg-white/5">Download</a>
+        <a href="#download" class="block text-center mt-2 px-3 py-3 rounded-xl bg-white text-slate-900 font-semibold">Get the app</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden pt-36 sm:pt-44 pb-16 sm:pb-24">
+    <div class="absolute inset-0 hero-grid"></div>
+    <div class="orb absolute -top-24 left-1/4 w-[480px] h-[480px] rounded-full bg-indigo-600/40"></div>
+    <div class="orb absolute top-20 right-[8%] w-[380px] h-[380px] rounded-full bg-cyan-500/25"></div>
+    <div class="orb absolute top-64 left-[5%] w-[300px] h-[300px] rounded-full bg-violet-600/30"></div>
+
+    <div class="relative max-w-7xl mx-auto px-5 sm:px-8 text-center">
+      <a href="#features" class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium px-4 py-1.5 rounded-full border border-indigo-400/30 bg-indigo-500/10 text-indigo-200">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        In active development — macOS · Windows · Linux
+      </a>
+      <h1 class="font-display font-bold tracking-tight text-white text-4xl sm:text-6xl lg:text-7xl mt-6 max-w-4xl mx-auto leading-[1.05]">
+        Learn faster in <span class="bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-300 bg-clip-text text-transparent">one focused space</span>
+      </h1>
+      <p class="mt-6 text-base sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        Courses, interactive labs, an AI tutor, and community — in one desktop-first space built for deep focus.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="#download" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-semibold hover:opacity-90 transition shadow-lg shadow-indigo-500/25">Download free</a>
+        <a href="#how" class="w-full sm:w-auto px-7 py-3.5 rounded-xl border border-white/15 font-semibold text-white hover:border-white/30 hover:bg-white/5 transition">See how it works</a>
+      </div>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-400">
+        <span>Open source</span>
+        <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+        <span>Offline-first</span>
+        <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+        <span>Free during beta</span>
+      </div>
+
+      <!-- App mock (pure HTML/CSS) -->
+      <div class="mt-14 max-w-5xl mx-auto float-slow">
+        <div class="rounded-2xl border border-white/10 bg-[#0F172A]/90 shadow-2xl shadow-black/50 overflow-hidden text-left">
+          <div class="flex items-center gap-2 px-4 py-3 border-b border-white/10">
+            <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+            <span class="ml-3 text-xs text-slate-500 font-medium">metalearn.space — Python Lab 03</span>
+          </div>
+          <div class="grid md:grid-cols-[220px_1fr_240px]">
+            <div class="hidden md:block p-4 border-r border-white/10 space-y-2 text-sm">
+              <p class="text-[11px] uppercase tracking-wider text-slate-500 font-semibold px-2">My Space</p>
+              <div class="px-3 py-2 rounded-lg bg-indigo-500/15 border border-indigo-400/20 text-white font-medium">🐍 Python Track</div>
+              <div class="px-3 py-2 rounded-lg hover:bg-white/5">◍ Physics Lab</div>
+              <div class="px-3 py-2 rounded-lg hover:bg-white/5">✦ AI Tutor</div>
+              <div class="px-3 py-2 rounded-lg hover:bg-white/5">◐ Community</div>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p class="text-xs font-medium text-indigo-300">LESSON 12 · LOOPS</p>
+              <h3 class="font-display text-white font-semibold text-lg mt-1">Build a gravity simulation</h3>
+              <div class="mt-4 rounded-xl bg-black/50 border border-white/10 p-4 font-mono text-[13px] leading-6">
+                <p><span class="text-violet-400">for</span> <span class="text-slate-200">planet</span> <span class="text-violet-400">in</span> <span class="text-slate-200">system:</span></p>
+                <p class="pl-4 text-slate-300">planet.apply(<span class="text-cyan-300">gravity</span>=9.8)</p>
+                <p class="pl-4 text-slate-300">render(<span class="text-cyan-300">orbit</span>=planet.path) <span class="text-emerald-400">▊</span></p>
+              </div>
+              <div class="mt-4 flex gap-2">
+                <span class="text-xs px-3 py-1.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/20">✓ Tests passing</span>
+                <span class="text-xs px-3 py-1.5 rounded-full bg-white/5 text-slate-300 border border-white/10">▶ Run simulation</span>
+              </div>
+            </div>
+            <div class="hidden md:block p-4 border-l border-white/10">
+              <div class="rounded-xl bg-gradient-to-b from-indigo-500/20 to-transparent border border-white/10 p-3">
+                <p class="text-xs font-semibold text-white">AI Tutor</p>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">Nice! Now try changing gravity to 1.6 — that's the Moon. What happens to the orbit?</p>
+              </div>
+              <div class="mt-3 space-y-2">
+                <div class="h-2 rounded-full bg-white/10 w-full"><div class="h-2 rounded-full bg-gradient-to-r from-indigo-400 to-cyan-300 w-3/4"></div></div>
+                <p class="text-[11px] text-slate-500">Weekly goal · 75%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold text-indigo-400 uppercase tracking-wider">Features</p>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight mt-3">Everything you need to stay in flow</h2>
+        <p class="mt-4 text-slate-400 text-base sm:text-lg">No tab-switching. Your course, code, lab, and tutor live side by side.</p>
+      </div>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- card -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-indigo-400/40 hover:bg-white/[0.05] transition group">
+          <div class="w-11 h-11 rounded-xl bg-indigo-500/15 border border-indigo-400/20 grid place-items-center text-xl">◍</div>
+          <h3 class="mt-4 font-semibold text-white text-lg">Interactive Spaces</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Explore physics, anatomy, or data structures as hands-on scenes — not slides.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-indigo-400/40 hover:bg-white/[0.05] transition">
+          <div class="w-11 h-11 rounded-xl bg-violet-500/15 border border-violet-400/20 grid place-items-center text-xl">✦</div>
+          <h3 class="mt-4 font-semibold text-white text-lg">AI Tutor</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Hints, explanations, and code reviews grounded in your current lesson.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-indigo-400/40 hover:bg-white/[0.05] transition">
+          <div class="w-11 h-11 rounded-xl bg-cyan-500/15 border border-cyan-400/20 grid place-items-center text-xl">▣</div>
+          <h3 class="mt-4 font-semibold text-white text-lg">Labs & Projects</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Real sandboxes with tests and instant feedback. Ship a portfolio as you learn.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-indigo-400/40 hover:bg-white/[0.05] transition">
+          <div class="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-400/20 grid place-items-center text-xl">◔</div>
+          <h3 class="mt-4 font-semibold text-white text-lg">Progress Analytics</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Streaks, mastery maps, and weekly goals that keep momentum visible.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-indigo-400/40 hover:bg-white/[0.05] transition">
+          <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-400/20 grid place-items-center text-xl">◐</div>
+          <h3 class="mt-4 font-semibold text-white text-lg">Community Spaces</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Study rooms, challenges, and peer review without leaving the app.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-indigo-400/40 hover:bg-white/[0.05] transition">
+          <div class="w-11 h-11 rounded-xl bg-rose-500/15 border border-rose-400/20 grid place-items-center text-xl">⬢</div>
+          <h3 class="mt-4 font-semibold text-white text-lg">Offline Desktop Sync</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Desktop-first, works on planes and bad wifi. Syncs when you're back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="py-20 sm:py-24 border-t border-white/5 bg-white/[0.015]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="text-sm font-semibold text-indigo-400 uppercase tracking-wider">How it works</p>
+        <h2 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight mt-3">From curious to capable in 3 steps</h2>
+      </div>
+      <div class="mt-12 grid md:grid-cols-3 gap-5">
+        <div class="rounded-2xl border border-white/10 p-7 bg-[#0F172A]/60">
+          <span class="font-display text-5xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-300 bg-clip-text text-transparent">01</span>
+          <h3 class="mt-4 font-semibold text-white text-lg">Pick a track</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Python, web dev, data, physics and more. Start at your level with a placement check.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-7 bg-[#0F172A]/60">
+          <span class="font-display text-5xl font-bold bg-gradient-to-r from-violet-400 to-indigo-300 bg-clip-text text-transparent">02</span>
+          <h3 class="mt-4 font-semibold text-white text-lg">Learn by building</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Short lessons feed straight into labs and hands-on simulations with instant test feedback.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-7 bg-[#0F172A]/60">
+          <span class="font-display text-5xl font-bold bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent">03</span>
+          <h3 class="mt-4 font-semibold text-white text-lg">Get unstuck fast</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Ask the AI tutor or jump into a live study room. Never stare at an error alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download" class="py-20 sm:py-24">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8">
+      <div class="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-indigo-600/25 via-[#0F172A] to-cyan-500/10 p-8 sm:p-14 text-center">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">Get MetaLearn Space for desktop</h2>
+        <p class="mt-3 text-slate-400 max-w-xl mx-auto">Free during beta. Pick your OS — builds are published on GitHub Releases.</p>
+        <!-- OS picker -->
+        <div class="mt-8 inline-flex rounded-xl border border-white/15 bg-black/30 p-1.5 gap-1" role="tablist" aria-label="Choose your operating system">
+          <button type="button" data-os="macos" class="os-btn active px-5 py-2.5 rounded-lg text-sm text-slate-300 border border-transparent hover:text-white transition">macOS</button>
+          <button type="button" data-os="windows" class="os-btn px-5 py-2.5 rounded-lg text-sm text-slate-300 border border-transparent hover:text-white transition">Windows</button>
+          <button type="button" data-os="linux" class="os-btn px-5 py-2.5 rounded-lg text-sm text-slate-300 border border-transparent hover:text-white transition">Linux</button>
+        </div>
+        <!-- Format picker (per-OS file type) -->
+        <div id="formatPicker" class="mt-3 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Choose file format"></div>
+        <div class="mt-6">
+          <a id="downloadBtn" href="https://github.com/synaptal/metalearn-space-desktop/releases/download/app-v0.2.1-beta.1/Metalearn-Space_0.2.1-beta.1_aarch64.dmg" class="inline-block px-8 py-3.5 rounded-xl bg-white text-slate-900 font-semibold hover:bg-indigo-100 transition">⬇ Download for macOS</a>
+          <p id="downloadMeta" class="mt-3 text-sm text-slate-400">Metalearn-Space_0.2.1-beta.1_aarch64.dmg · ~12 MB · app-v0.2.1-beta.1</p>
+        </div>
+        <p class="mt-5 text-xs text-slate-500">No build published yet? <a href="https://github.com/synaptal/metalearn-space-desktop" target="_blank" rel="noopener" class="underline hover:text-slate-300">Watch the repo</a> to get notified · <a href="https://github.com/synaptal/metalearn-space-desktop/releases" target="_blank" rel="noopener" class="underline hover:text-slate-300">All releases</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="pb-20 sm:pb-28 px-5 sm:px-8">
+    <div class="max-w-5xl mx-auto text-center rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-600/20 via-transparent to-cyan-500/10 px-6 py-14">
+      <h2 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight">Your space to learn is ready</h2>
+      <p class="mt-4 text-slate-400">No users yet — be among the first to try it and shape the roadmap.</p>
+      <div class="mt-8 flex justify-center">
+        <a href="#download" class="px-7 py-3.5 rounded-xl bg-white text-slate-900 font-semibold hover:bg-indigo-100 transition">Download free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <div class="flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400 grid place-items-center text-white font-bold text-sm">M</span>
+        <span>© <span id="year">2026</span> MetaLearn Space. All rights reserved.</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#features" class="hover:text-slate-300">Features</a>
+        <a href="#download" class="hover:text-slate-300">Download</a>
+        <a href="https://github.com/synaptal/metalearn-space-desktop" target="_blank" rel="noopener" class="hover:text-slate-300">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+    // Navbar shadow on scroll
+    const nav = document.getElementById('navbar');
+    addEventListener('scroll', () => {
+      nav.classList.toggle('drop-shadow-xl', scrollY > 10);
+    }, { passive: true });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // OS + format picker — direct download from GitHub Releases
+    const REPO = 'synaptal/metalearn-space-desktop';
+    const API_LATEST = `https://api.github.com/repos/${REPO}/releases/latest`;
+    const RELEASES_URL = `https://github.com/${REPO}/releases`;
+    const TAG = 'app-v0.2.1-beta.1';
+    const DL = (f) => `https://github.com/${REPO}/releases/download/${TAG}/${f}`;
+    const OS_DATA = {
+      macos: {
+        label: '⬇ Download for macOS',
+        formats: [
+          { id: 'arm-dmg', label: 'Apple Silicon · .dmg', file: 'Metalearn-Space_0.2.1-beta.1_aarch64.dmg', meta: 'Metalearn-Space_0.2.1-beta.1_aarch64.dmg · ~12 MB · app-v0.2.1-beta.1', match: /aarch64.*\.dmg$/i },
+          { id: 'intel-dmg', label: 'Intel · .dmg', file: 'Metalearn-Space_0.2.1-beta.1_x64.dmg', meta: 'Metalearn-Space_0.2.1-beta.1_x64.dmg · ~13 MB · app-v0.2.1-beta.1', match: /x64.*\.dmg$/i }
+        ]
+      },
+      windows: {
+        label: '⬇ Download for Windows',
+        formats: [
+          { id: 'exe', label: '.exe installer', file: 'Metalearn-Space_0.2.1-beta.1_x64-setup.exe', meta: 'Metalearn-Space_0.2.1-beta.1_x64-setup.exe · ~11 MB · app-v0.2.1-beta.1', match: /setup.*\.exe$/i }
+        ]
+      },
+      linux: {
+        label: '⬇ Download for Linux',
+        formats: [
+          { id: 'appimage', label: '.AppImage', file: 'Metalearn-Space_0.2.1-beta.1_amd64.AppImage', meta: 'Metalearn-Space_0.2.1-beta.1_amd64.AppImage · ~89 MB · app-v0.2.1-beta.1', match: /\.appimage$/i },
+          { id: 'deb', label: '.deb', file: 'Metalearn-Space_0.2.1-beta.1_amd64.deb', meta: 'Metalearn-Space_0.2.1-beta.1_amd64.deb · ~14 MB · app-v0.2.1-beta.1', match: /\.deb$/i }
+        ]
+      }
+    };
+    // Precompute direct URLs
+    for (const os of Object.keys(OS_DATA)) OS_DATA[os].formats.forEach(f => f.url = DL(f.file));
+    const osBtns = document.querySelectorAll('.os-btn');
+    const dlBtn = document.getElementById('downloadBtn');
+    const dlMeta = document.getElementById('downloadMeta');
+    const fmtPicker = document.getElementById('formatPicker');
+    let currentOS = 'macos';
+    let currentFmt = { macos: 'arm-dmg', windows: 'exe', linux: 'appimage' };
+
+    function getFmt(os) {
+      return OS_DATA[os].formats.find(f => f.id === currentFmt[os]) || OS_DATA[os].formats[0];
+    }
+    function renderFormats() {
+      const fmts = OS_DATA[currentOS].formats;
+      fmtPicker.innerHTML = '';
+      if (fmts.length < 2) return; // single format — no selector needed
+      fmts.forEach(f => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.dataset.fmt = f.id;
+        b.textContent = f.label;
+        b.setAttribute('role', 'tab');
+        b.className = `fmt-btn px-4 py-2 rounded-lg text-xs border transition ${f.id === currentFmt[currentOS] ? 'active' : 'border-white/15 text-slate-400 hover:text-white hover:border-white/30'}`;
+        b.addEventListener('click', () => { currentFmt[currentOS] = f.id; renderFormats(); applySelection(); });
+        fmtPicker.appendChild(b);
+      });
+    }
+    function applySelection() {
+      const f = getFmt(currentOS);
+      dlBtn.textContent = OS_DATA[currentOS].label;
+      dlBtn.href = f.url; // direct file URL — click starts download immediately
+      dlMeta.textContent = f.meta;
+    }
+    function setOS(os) {
+      currentOS = os;
+      osBtns.forEach(b => b.classList.toggle('active', b.dataset.os === os));
+      renderFormats();
+      applySelection();
+    }
+    // Try to auto-update to a newer release if one appears (non-blocking, keeps hardcoded fallback)
+    async function refreshFromAPI() {
+      try {
+        const res = await fetch(API_LATEST, { headers: { 'Accept': 'application/vnd.github+json' } });
+        if (!res.ok) return;
+        const rel = await res.json();
+        const assets = rel.assets || [];
+        if (!assets.length) return;
+        if (rel.tag_name && rel.tag_name !== TAG) {
+          for (const os of Object.keys(OS_DATA)) {
+            OS_DATA[os].formats.forEach(f => {
+              const hit = assets.find(a => f.match.test(a.name));
+              if (hit) {
+                f.url = hit.browser_download_url;
+                const mb = hit.size ? ` · ~${(hit.size / 1048576).toFixed(0)} MB` : '';
+                f.file = hit.name;
+                f.meta = `${hit.name}${mb} · ${rel.tag_name}`;
+              }
+            });
+          }
+          renderFormats();
+          applySelection();
+        }
+      } catch { /* keep hardcoded URLs on API failure / rate limit */ }
+    }
+    osBtns.forEach(b => b.addEventListener('click', () => setOS(b.dataset.os)));
+    // Auto-detect OS on load
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.includes('win')) currentOS = 'windows';
+    else if (ua.includes('linux')) currentOS = 'linux';
+    else currentOS = 'macos';
+    setOS(currentOS);
+    refreshFromAPI();
+  </script>
+</body>
+</html>
